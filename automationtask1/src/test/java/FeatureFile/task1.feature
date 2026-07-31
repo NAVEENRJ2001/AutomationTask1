@@ -99,7 +99,7 @@ Feature: To Verify the Functionality of the Dolibarr Demo Site
 
     Examples:
       | productref            | label    | description  | publicUrl      | duration | notes             | sellingPrice | minimumSellingPrice |
-      | Web Application demo1 | Software | Good quality | www.google.com | 10       | customer friendly | 1000         | 850                 |
+      | Web Application demo2 | Software | Good quality | www.google.com | 10       | customer friendly | 1000         | 850                 |
 
   Scenario Outline: To Validate the creation of new services
     When User Clicks the services option
@@ -236,3 +236,5 @@ Feature: To Verify the Functionality of the Dolibarr Demo Site
     Examples:
       | thirdpart |
       | Naveenraj |
+      
+      
