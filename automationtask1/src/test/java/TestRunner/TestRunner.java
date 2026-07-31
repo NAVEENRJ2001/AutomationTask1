@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 
 import com.BaseClass;
 
+import io.cucumber.core.snippets.SnippetType;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
@@ -14,7 +15,10 @@ dryRun = false,
 glue = {"StepDefinition","hooks"}, 
 tags = "@test",
 plugin ={
-		"pretty", "html:target/html/report.html" })
+		"pretty", "html:target/html/report.html" },
+monochrome=false,
+snippets = io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE
+)
 @RunWith(Cucumber.class)
 
 

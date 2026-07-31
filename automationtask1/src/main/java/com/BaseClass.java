@@ -26,7 +26,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-	
+
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 
@@ -127,12 +127,13 @@ public class BaseClass {
 		return filepath;
 
 	}
+
 	public void moveToElement(WebElement element) {
 		wait.until(ExpectedConditions.visibilityOf(element));
 		Actions ac = new Actions(driver);
 		ac.moveToElement(element).perform();
 	}
-	
+
 	public void WindowHandletoChild() {
 		Set<String> windows = driver.getWindowHandles();
 		Iterator<String> it = windows.iterator();
@@ -141,26 +142,29 @@ public class BaseClass {
 		driver.switchTo().window(child);
 
 	}
+
 	public void enterKey(WebElement element) {
-	wait.until(ExpectedConditions.visibilityOf(element));
-	element.sendKeys(Keys.ENTER);
+		wait.until(ExpectedConditions.visibilityOf(element));
+		element.sendKeys(Keys.ENTER);
 
 	}
-	
+
 	public void switchToFrame(WebElement element) {
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
-		
-		
-		
 
 	}
+
 	public void SwitchtoParentFrame() {
 		driver.switchTo().parentFrame();
 
 	}
-	
-		
+
+	public void dropDownByValue(WebElement element, String s) {
+		wait.until(ExpectedConditions.visibilityOf(element));
+		wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+		Select sv = new Select(element);
+		sv.selectByValue(s);
 
 	}
 
-
+}
