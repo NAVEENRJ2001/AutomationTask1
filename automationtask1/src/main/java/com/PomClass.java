@@ -1,5 +1,7 @@
 package com;
 
+import java.time.temporal.WeekFields;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -589,5 +591,345 @@ public class PomClass {
 
 	@FindBy(xpath = "(//td[text()='Gokul'])[1]")
 	public WebElement saleSearchVali;
+	
+	@FindBy(xpath = "//a[text()='New price request']")
+	public WebElement newPriceReq;
+	
+	@FindBy(id = "select2-socid-container")
+	public WebElement vendorBox;
+	
+	@FindBy(xpath = "(//input[@type='search'])[2]")
+	public WebElement vendorField;
+	
+	@FindBy(id = "select2-cond_reglement_id-container")
+	public WebElement termBox;
+	
+	@FindBy(xpath = "(//input[@type='search'])[2]")
+	public WebElement payTermField;
+	
+	@FindBy(id = "liv_")
+	public WebElement ddField;
+	
+	@FindBy(id = "select2-projectid-container")
+	public WebElement proBox;
+	
+	@FindBy(xpath = "(//input[@type='search'])[2]")
+	public WebElement proBoxField;
+	
+	@FindBy(xpath = "//input[@name='save']")
+	public WebElement priceCreateBtn;
+	
+	@FindBy(xpath = "//span[contains(text(),'(PRO')]")
+	public WebElement priceReqVali;
+	
+	@FindBy(xpath = "(//a[text()='List'])[3]")
+	public WebElement priceList;
+	
+	@FindBy(xpath = "//input[@name='search_company']")
+	public WebElement vendorSearch;
+	
+	@FindBy(xpath = "(//a[text()='KVN productions'])[1]")
+	public WebElement priceSearchVali;
+	
+	@FindBy(id = "select2-socid-container")
+	public WebElement purchaseVendorBox;
+	
+	@FindBy(xpath = "(//input[@type='search'])[2]")
+	public WebElement purchaseVendorField;
+	
+	@FindBy(xpath = "//input[@name='refsupplier']")
+	public WebElement refVendorField;
+	
+	@FindBy(id = "liv_")
+	public WebElement purchaseDdField;
+	
+	@FindBy(id = "select2-projectid-container")
+	public WebElement purchaseProBox;
+	
+	@FindBy(xpath = "(//input[@type='search'])[2]")
+	public WebElement purProBoxField;
+	
+	@FindBy(xpath = "(//a[text()='New order'])[2]")
+	public WebElement newPurchase;
+	
+	@FindBy(xpath = "//input[@name='save']")
+	public WebElement purchaseCreateBtn;
+	
+	@FindBy(xpath = "//span[contains(text(),'(PRO')]")
+	public WebElement purchaseVali;
+	
+	@FindBy(xpath = "(//a[text()='List'])[4]")
+	public WebElement purchaselist;
+	
+	@FindBy(xpath = "//input[@name='search_refsupp']")
+	public WebElement purchaseSearchField;
+	
+	@FindBy(xpath = "//td[text()='Kathirvel']")
+	public WebElement purchaseSearchVali;
+	
+	@FindBy(id = "ref_customer")
+	public WebElement refCustomerField2;
+	
+	@FindBy(id = "ref_supplier")
+	public WebElement refVendor;
+	
+	@FindBy(xpath = "//input[@name='add']")
+	public WebElement contractAddBtn;
+	
+	@FindBy(xpath = "//a[text()='New contract or subscription']")
+	public WebElement newContract;
+	
+	@FindBy(xpath = "//span[text()=' - Automation Project']")
+	public WebElement contractVali;
+	
+	@FindBy(xpath="//input[@type='search']")
+	public WebElement contarctThirdPrtyField;
+	
+	@FindBy(xpath = "(//a[text()='List'])[5]")
+	public WebElement contractList;
+	
+	@FindBy(xpath = "//input[@name='search_ref_customer']")
+	public WebElement contractSearchField;
+	
+	@FindBy(xpath = "(//td[text()='Hema'])[1]")
+	public WebElement contractSearchVali;
+	
+	@FindBy(xpath = "(//input[@class='select2-search__field'])[2]")
+	public WebElement fields;
+	
+	@FindBy(id = "radio_deposit")
+	public WebElement downPaymentcb;
+	
+	@FindBy(id = "re")
+	public  WebElement invoiceDate;
+	
+	@FindBy(id = "select2-selectfk_account-container")
+	public WebElement bankAccount;
+	
+	@FindBy(id = "select2-select_input_reason_id-container")
+	public WebElement source;
+	
+	@FindBy(id = "select2-projectid-container")
+	public WebElement project;
+	
+	@FindBy(xpath = "//span[text()='Billing | Payment']")
+	public WebElement billingBtn;
+	
+	@FindBy(xpath = "(//a[text()='New invoice'])[1]")
+	public WebElement newCustomerInvoice;
+	
+	@FindBy(xpath = "//input[@name='save']")
+	public WebElement increateBtn;
+	
+	@FindBy(xpath = "//span[contains(text(),'(PRO')]")
+	public WebElement cusInVali;
+	
+	@FindBy(xpath = "//span[text()='(PROV27417)']")
+	public WebElement cusInSeVali;
+	
+	@FindBy(xpath = "(//a[text()='List'])[1]")
+	public WebElement listCusIn;
+	
+	@FindBy(id = "select2-search_type-container")
+	public WebElement listSearchBox;
+	
+	@FindBy(xpath = "//a[text()='(PROV27417)']")
+	public WebElement link;
+	
+	@FindBy(xpath = "//input[@name='label']")
+	public WebElement labelFiled1;
+	
+	@FindBy(id = "ech")
+	public WebElement duePayment;
+	
+	@FindBy(xpath = "(//a[text()='New invoice'])[2]")
+	public WebElement newVendor;
+	
+	@FindBy(xpath = "//input[@name='ref_supplier']")
+	public WebElement supplierRef;
+	
+	@FindBy(xpath = "//span[text()='Tickets']")
+	public WebElement ticketsBtn;
+	
+	@FindBy(xpath = "//a[text()='New article']")
+	public WebElement newArticle;
+	
+	@FindBy(id = "question")
+	public WebElement questionField;
+	
+	@FindBy(id = "select2-lang-container")
+	public WebElement artLang;
+	
+	@FindBy(id = "select2-fk_c_ticket_category-container")
+	public WebElement creationBox;
+	
+	@FindBy(xpath = "//div[text()='Who is our PM']")
+	public WebElement artCreatVali;
+	
+	@FindBy(xpath = "//input[@name='add']")
+	public WebElement createBn;
+	
+	@FindBy(xpath = "//iframe[@title='Editor, answer']")
+	public WebElement solutionFiled;
+	
+	@FindBy(tagName = "body")
+	public WebElement solution;
+	
+	@FindBy(xpath = "//a[text()='New Ticket']")
+	public WebElement newTicket;
+	
+	@FindBy(id = "subject")
+	public WebElement subjectField;
+	
+	@FindBy(xpath = "//iframe[@title='Editor, message']")
+	public WebElement messageField;
+	
+	@FindBy(tagName = "body")
+	public WebElement message;
+	
+	@FindBy(id = "notify_tiers_at_create")
+	public WebElement creationcb;
+	
+	@FindBy(xpath = "//input[@name='save']")
+	public WebElement createBtnTic;
+	
+	@FindBy(xpath = "//span[contains(text(),'TS2608')]")
+	public WebElement ticketCreateVali;
+	
+	@FindBy(xpath = "//a[text()='List of articles']")
+	public WebElement listArt;
+	
+	@FindBy(xpath = "//input[@name='search_question']")
+	public WebElement queSearch;
+	
+	@FindBy(xpath = "//td[text()='who is your pm']")
+	public WebElement queseachVali;
+	
+	@FindBy(xpath = "//a[text()='List']")
+	public WebElement ticList;
+	
+	@FindBy(xpath = "//input[@name='search_subject']")
+	public WebElement ticSearch;
+	
+	@FindBy(xpath = "//span[text()='computerScience']")
+	public WebElement ticSearchVali;
+	
+	@FindBy(id = "label")
+	public WebElement titleFiled;
+	
+	@FindBy(id = "select2-actioncode-container")
+	public WebElement typeBox;
+	
+	@FindBy(id = "ap")
+	public WebElement startd;
+	
+	@FindBy(id = "p2")
+	public WebElement endd;
+	
+	@FindBy(xpath = "//input[@name='location']")
+	public WebElement locationField;
+	
+	@FindBy(id = "select2-assignedtouser-container")
+	public WebElement assignedBox;
+	
+	@FindBy(id = "select2-assignedtoresource-container")
+	public WebElement resourceBox;
+	
+	@FindBy(id = "select2-selectcomplete-container")
+	public WebElement progressBox;
+	
+	@FindBy(xpath = "//input[@name='add']")
+	public WebElement createBtnEvent;
+	
+	@FindBy(xpath = "//div[text()='Manufacturer']")
+	public WebElement eventCreateVali;
+	
+	@FindBy(xpath = "//span[text()='Agenda']")
+	public WebElement agendaBtn;
+	
+	@FindBy(xpath = "//a[text()='New event']")
+	public WebElement newEvent;
+	
+	@FindBy(xpath = "//input[@name='ref']")
+	public WebElement refName;
+	
+	@FindBy(xpath = "select2-selectfk_code_type_resource-container")
+	public WebElement resType;
+	
+	@FindBy(xpath = "//iframe[@title='Editor, description']")
+	public WebElement resDes;
+	
+	@FindBy(id = "address")
+	public WebElement addressRes;
+	
+	@FindBy(id = "zipcode")
+	public WebElement zipField;
+	
+	@FindBy(id = "town")
+	public WebElement cityField;
+	
+	@FindBy(id = "select2-selectcountry_id-container")
+	public WebElement countryRes;
+	
+	@FindBy(id = "phone")
+	public WebElement phoneRes;
+	
+	@FindBy(id = "email")
+	public WebElement mailRes;
+	
+	@FindBy(id = "max_users")
+	public WebElement maxRes;
+	
+	@FindBy(xpath = "//a[text()='New resource']")
+	public WebElement newResource;
+	
+	@FindBy(xpath = "//span[text()='Python']")
+	public WebElement resourceVali;
+	
+	@FindBy(id = "select2-type-container")
+	public WebElement leaveType;
+	
+	@FindBy(id = "date_debut_")
+	public WebElement leaveSd;
+	
+	@FindBy(id = "date_fin_")
+	public WebElement leaveEd;
+	
+	@FindBy(id = "select2-valideur-container")
+	public WebElement apporoval;
+	
+	@FindBy(xpath = "//input[@name='save']")
+	public WebElement leaveCreateBtn;
+	
+	@FindBy(xpath = "//span[text()='HRM']")
+	public WebElement hrmBtn;
+	
+	@FindBy(xpath = "(//a[text()='New'])[1]")
+	public WebElement newLeave;
+	
+	@FindBy(xpath = "//span[contains(text(),'PROV592')]" )
+	public WebElement expenseVali;
+	
+	@FindBy(id = "date_debut")
+	public WebElement sD;
+	
+	@FindBy(id = "date_fin")
+	public WebElement eD;
+	
+	@FindBy(id = "select2-fk_user_validator-container")
+	public WebElement app;
+	
+	@FindBy(xpath = "//input[@name='save']")
+	public WebElement expSaveBtn;
+	
+	@FindBy(xpath = "(//a[text()='New'])[2]")
+	public WebElement newExpenses;
+	
+	
+	
+	
+	
+	
+	
 
 }

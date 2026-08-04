@@ -11,8 +11,8 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @CucumberOptions(features = "src/test/java/FeatureFile",
-dryRun = false, 
-glue = {"StepDefinition","hooks"}, 
+dryRun = true, 
+glue = {"StepDefinition","Hooks"}, 
 tags = "@test",
 plugin ={
 		"pretty", "html:target/html/report.html" },
@@ -33,7 +33,7 @@ public class TestRunner extends BaseClass{
 
 	@AfterClass
 	public static void end() {
-		driver.quit();
+	driver.quit();
 
 	}
 

@@ -2,17 +2,14 @@ package StepDefinition;
 
 import static org.junit.Assert.assertEquals;
 
-import org.apache.commons.compress.compressors.snappy.FramedSnappyDialect;
-import org.openqa.selenium.WebElement;
+import java.sql.ClientInfoStatus;
 
 import com.BaseClass;
 import com.PomClass;
-import com.google.common.base.CaseFormat;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.lu.a;
 
 public class StepDefinition extends BaseClass {
 
@@ -847,107 +844,856 @@ public class StepDefinition extends BaseClass {
 
 	@When("user clicks the new sales order option")
 	public void userClicksTheNewSalesOrderOption() {
-         clickElement(t1.newSale);
+		clickElement(t1.newSale);
 	}
 
 	@When("user enters the {string} in the sale order")
 	public void userEntersTheInTheSaleOrder(String refcus) {
-           sendKeys(t1.salesClientField, refcus);
+		sendKeys(t1.salesClientField, refcus);
 	}
 
 	@When("user enters the {string} for the sale order creation")
 	public void userEntersTheForTheSaleOrderCreation(String customer) {
-           clickElement(t1.saleCustomerBox);
+		clickElement(t1.saleCustomerBox);
 		sendKeys(t1.saleCustomerBoxField, customer);
 		enterKey(t1.saleCustomerBoxField);
 	}
 
 	@When("user enters the planned {string} date in the sale order")
 	public void userEntersThePlannedDateInTheSaleOrder(String deliver) {
-        sendKeys(t1.plannedDeliveryDate, deliver);
-        dropDownByValue(t1.deliveryHr, "17");
-        dropDownByValue(t1.deliveryMin, "00");
+		sendKeys(t1.plannedDeliveryDate, deliver);
+		dropDownByValue(t1.deliveryHr, "17");
+		dropDownByValue(t1.deliveryMin, "00");
 	}
 
 	@When("user enters the availability {string} in the sale order")
 	public void userEntersTheAvailabilityInTheSaleOrder(String delay) {
-         clickElement(t1.saleDelayBox);
-         sendKeys(t1.saleDelayBoxField, delay);
-         enterKey(t1.saleDelayBoxField);
+		clickElement(t1.saleDelayBox);
+		sendKeys(t1.saleDelayBoxField, delay);
+		enterKey(t1.saleDelayBoxField);
 	}
 
-	/*@When("user enters the {string} method in the column")
-	public void userEntersTheMethodInTheColumn(String shipping) {
-           clickElement(t1.saleShippingBox);
-           sendKeys(t1.saleShippingField, shipping);
-           enterKey(t1.saleShippingField);*/
-	//}
+	/*
+	 * @When("user enters the {string} method in the column") public void
+	 * userEntersTheMethodInTheColumn(String shipping) {
+	 * clickElement(t1.saleShippingBox); sendKeys(t1.saleShippingField, shipping);
+	 * enterKey(t1.saleShippingField);
+	 */
+	// }
 
 	@When("user enter the {string} of the cash for the sale order")
 	public void userEnterTheOfTheCashForTheSaleOrder(String source) {
-            clickElement(t1.saleSourceBox);
-            sendKeys(t1.saleSourceBoxField, source);
-            enterKey(t1.saleSourceBoxField);
+		clickElement(t1.saleSourceBox);
+		sendKeys(t1.saleSourceBoxField, source);
+		enterKey(t1.saleSourceBoxField);
 	}
 
 	@When("user enters the {string} for the create the sale order")
 	public void userEntersTheForTheCreateTheSaleOrder(String project) {
-             clickElement(t1.saleProjectBox);
-             sendKeys(t1.saleProjectBoxField, project);
-             enterKey(t1.saleProjectBoxField);
+		clickElement(t1.saleProjectBox);
+		sendKeys(t1.saleProjectBoxField, project);
+		enterKey(t1.saleProjectBoxField);
 	}
+
 	@When("user enter the {string} terms for the sale order")
 	public void userEnterTheTermsForTheSaleOrder(String inco) {
-	    clickElement(t1.incoTermsBox);
-	    sendKeys(t1.incoTermField, inco);
-	    enterKey(t1.incoTermField);
+		clickElement(t1.incoTermsBox);
+		sendKeys(t1.incoTermField, inco);
+		enterKey(t1.incoTermField);
 	}
 
 	@When("user enters the {string} field in the sale order creation")
 	public void userEntersTheFieldInTheSaleOrderCreation(String custom) {
-          sendKeys(t1.customField, custom);
+		sendKeys(t1.customField, custom);
 	}
 
 	@When("user enters the {string} notes for sale order")
 	public void userEntersTheNotesForSaleOrder(String publics) {
-         sendKeys(t1.salePublicNotesField, publics);
+		sendKeys(t1.salePublicNotesField, publics);
 	}
 
 	@When("user enters the {string} notes for creation of sale order")
 	public void userEntersTheNotesForCreationOfSaleOrder(String privates) {
-          sendKeys(t1.salePrivateNotesField, privates);
+		sendKeys(t1.salePrivateNotesField, privates);
 	}
 
 	@When("user clicks the sale order create draft button")
 	public void userClicksTheSaleOrderCreateDraftButton() {
-         clickElement(t1.saleCreateBtn);
+		clickElement(t1.saleCreateBtn);
 	}
+
 	@Then("user creates the sale order sucessfully")
 	public void userCreatesTheSaleOrderSucessfully() {
-	    String Actual = getText(t1.saleCreateVali);
-	    assertEquals(Actual, getText(t1.saleCreateVali));
-	    System.out.println(Actual);
+		String Actual = getText(t1.saleCreateVali);
+		assertEquals(Actual, getText(t1.saleCreateVali));
+		System.out.println(Actual);
 	}
+
 	@When("user clicks the commerce option for sale order validation")
 	public void userClicksTheCommerceOptionForSaleOrderValidation() {
-	    clickElement(t1.commerceBtn);
+		clickElement(t1.commerceBtn);
 	}
+
 	@When("user clicks the list in sale order section")
 	public void userClicksTheListInSaleOrderSection() {
-	    clickElement(t1.saleList);
+		clickElement(t1.saleList);
 	}
+
 	@When("user enter the {string} name in the thirdparty column for sale search")
 	public void userEnterTheNameInTheThirdpartyColumnForSaleSearch(String thirdpart) {
-	    sendKeys(t1.saleSearchBox, thirdpart);
-	    enterKey(t1.saleSearchBox);
+		sendKeys(t1.saleSearchBox, thirdpart);
+		enterKey(t1.saleSearchBox);
 	}
+
 	@Then("User gets the created sale order sucessfully")
 	public void userGetsTheCreatedSaleOrderSucessfully() {
-	 String Actual = getText(t1.saleSearchVali);
-	 String Expected = "Gokul";
-	 assertEquals(Expected, Actual);
-	 System.out.println(Actual);
+		String Actual = getText(t1.saleSearchVali);
+		String Expected = "Gokul";
+		assertEquals(Expected, Actual);
+		System.out.println(Actual);
+	}
+
+	@When("user clicks the new price request option")
+	public void userClicksTheNewPriceRequestOption() {
+		clickElement(t1.commerceBtn);
+		clickElement(t1.newPriceReq);
+	}
+
+	@When("user enters the {string} in the new price request list")
+	public void userEntersTheInTheNewPriceRequestList(String vendor) {
+		clickElement(t1.vendorBox);
+		sendKeys(t1.vendorField, vendor);
+		enterKey(t1.vendorField);
+	}
+
+	@When("user enters the {string} terms in the new price list")
+	public void userEntersTheTermsInTheNewPriceList(String payment) {
+		clickElement(t1.termBox);
+		sendKeys(t1.payTermField, payment);
+		enterKey(t1.payTermField);
+	}
+
+	@When("user enters the {string} date in the new price list")
+	public void userEntersTheDateInTheNewPriceList(String delivery) {
+		sendKeys(t1.ddField, delivery);
+	}
+
+	@When("user enters the {string} details in the new price list")
+	public void userEntersTheDetailsInTheNewPriceList(String project) {
+		clickElement(t1.proBox);
+		sendKeys(t1.proBoxField, project);
+		enterKey(t1.proBoxField);
+	}
+
+	@When("user clicks the new price request create button")
+	public void userClicksTheNewPriceRequestCreateButton() {
+		clickElement(t1.priceCreateBtn);
+	}
+
+	@Then("user creates the new price request sucessfully")
+	public void userCreatesTheNewPriceRequestSucessfully() {
+		String Actual = getText(t1.priceReqVali);
+		assertEquals(Actual, getText(t1.priceReqVali));
+		System.out.println(Actual);
+	}
+
+	@When("user clicks the commerce option for new price  validation")
+	public void userClicksTheCommerceOptionForNewPriceValidation() {
+		clickElement(t1.commerceBtn);
+
+	}
+
+	@When("user clicks the list in new price request section")
+	public void userClicksTheListInNewPriceRequestSection() {
+		clickElement(t1.priceList);
+	}
+
+	@When("user enter the {string} name in the vendor column for new price search")
+	public void userEnterTheNameInTheVendorColumnForNewPriceSearch(String vendor) {
+		sendKeys(t1.vendorSearch, vendor);
+		enterKey(t1.vendorSearch);
+	}
+
+	@Then("User gets the created new price sucessfully")
+	public void userGetsTheCreatedNewPriceSucessfully() {
+		String Actual = getText(t1.priceSearchVali);
+		String Expected = "KVN productions";
+		assertEquals(Expected, Actual);
+		System.out.println(Actual);
+	}
+
+	@When("user clicks the commerce option for the create new purchase order")
+	public void userClicksTheCommerceOptionForTheCreateNewPurchaseOrder() {
+		clickElement(t1.commerceBtn);
+	}
+
+	@When("user clicks the new purchase order option")
+	public void userClicksTheNewPurchaseOrderOption() {
+		clickElement(t1.newPurchase);
+	}
+
+	@When("user enters the {string} in the new purchase order")
+	public void userEntersTheInTheNewPurchaseOrder(String vendor) {
+		clickElement(t1.purchaseVendorBox);
+		sendKeys(t1.purchaseVendorField, vendor);
+		enterKey(t1.purchaseVendorField);
+	}
+
+	@When("user enters the {string} in the ref column")
+	public void userEntersTheInTheRefColumn(String refvendor) {
+		sendKeys(t1.refVendorField, refvendor);
+	}
+
+	@When("user enters the {string} delivery date of the purchase order")
+	public void userEntersTheDeliveryDateOfThePurchaseOrder(String palnned) {
+		sendKeys(t1.purchaseDdField, palnned);
+	}
+
+	@When("user enters the {string} for the new purchase order")
+	public void userEntersTheForTheNewPurchaseOrder(String project) {
+		clickElement(t1.projectBox);
+		sendKeys(t1.projectBoxField, project);
+		enterKey(t1.projectBoxField);
+	}
+
+	@When("user enters the {string} for the creation of new purchase")
+	public void userEntersTheForTheCreationOfNewPurchase(String currency) {
+		clickElement(t1.currencyBox);
+		sendKeys(t1.currencyBoxField, currency);
+		enterKey(t1.currencyBoxField);
+	}
+
+	@When("user enters the {string} for the purchase")
+	public void userEntersTheForThePurchase(String publicnote) {
+		sendKeys(t1.publicNotesField, publicnote);
+	}
+
+	@When("user Enters the {string} for the new purchase")
+	public void userEntersTheForTheNewPurchase(String privatenote) {
+		sendKeys(t1.privateNotesField, privatenote);
+	}
+
+	@When("user click the create button for new purchase")
+	public void userClickTheCreateButtonForNewPurchase() {
+		clickElement(t1.purchaseCreateBtn);
+	}
+
+	@Then("user creates the new purchase order sucessfully")
+	public void userCreatesTheNewPurchaseOrderSucessfully() {
+		String Actual = getText(t1.purchaseVali);
+		assertEquals(Actual, getText(t1.purchaseVali));
+		System.out.println(Actual);
+	}
+
+	@When("user clicks the commerce option for new purchase order  validation")
+	public void userClicksTheCommerceOptionForNewPurchaseOrderValidation() {
+		clickElement(t1.commerceBtn);
+	}
+
+	@When("user clicks the list in new purchase order section")
+	public void userClicksTheListInNewPurchaseOrderSection() {
+		clickElement(t1.purchaselist);
+	}
+
+	@When("user enter the {string} name in the vendor column for new purchase search")
+	public void userEnterTheNameInTheVendorColumnForNewPurchaseSearch(String refvendor) {
+		sendKeys(t1.purchaseSearchField, refvendor);
+		enterKey(t1.purchaseSearchField);
+	}
+
+	@Then("User gets the created new purchase order sucessfully")
+	public void userGetsTheCreatedNewPurchaseOrderSucessfully() {
+		String Actual = getText(t1.purchaseSearchVali);
+		String Expeced = "Kathirvel";
+		assertEquals(Expeced, Actual);
+		System.out.println(Actual);
+	}
+
+	@When("user click the commerce option for creation of new contract")
+	public void userClickTheCommerceOptionForCreationOfNewContract() {
+		clickElement(t1.commerceBtn);
+	}
+
+	@When("user clicks the new contract and subscription")
+	public void userClicksTheNewContractAndSubscription() {
+		clickElement(t1.newContract);
+	}
+
+	@When("user enters the {string} in the new contract")
+	public void userEntersTheInTheNewContract(String refcustomer) {
+		sendKeys(t1.refCustomerField2, refcustomer);
+	}
+
+	@When("user enters the {string} in the creation of new contract")
+	public void userEntersTheInTheCreationOfNewContract(String refvendor) {
+		sendKeys(t1.refVendor, refvendor);
+	}
+
+	@When("user enters the {string} in the new contract creation")
+	public void userEntersTheInTheNewContractCreation(String thirdparty) {
+		clickElement(t1.thirdpartyBox);
+		sendKeys(t1.contarctThirdPrtyField, thirdparty);
+		enterKey(t1.contarctThirdPrtyField);
+	}
+
+	@When("user enters the {string} in create of new contract")
+	public void userEntersTheInCreateOfNewContract(String project) {
+		clickElement(t1.projectBox);
+		sendKeys(t1.contarctThirdPrtyField, project);
+		enterKey(t1.contarctThirdPrtyField);
+	}
+
+	@When("user enters the {string} for the new contract")
+	public void userEntersTheForTheNewContract(String publicnotes) {
+		sendKeys(t1.publicNotesField, publicnotes);
+	}
+
+	@When("user enters the {string} for new subscription")
+	public void userEntersTheForNewSubscription(String privatenotes) {
+		sendKeys(t1.privateNotesField, privatenotes);
+	}
+
+	@When("user clicks the create button for new contract")
+	public void userClicksTheCreateButtonForNewContract() {
+		clickElement(t1.contractAddBtn);
+	}
+
+	@Then("user creates a new contract or subscription sucessfully")
+	public void userCreatesANewContractOrSubscriptionSucessfully() {
+		String Actual = getText(t1.contractVali);
+		String Expected = " - Automation Project";
+		assertEquals(Expected, Actual);
+		System.out.println(Actual);
+	}
+
+	@When("user clicks the commerce option for new contract validation")
+	public void userClicksTheCommerceOptionForNewContractValidation() {
+		clickElement(t1.commerceBtn);
+	}
+
+	@When("user clicks the list in new contract section")
+	public void userClicksTheListInNewContractSection() {
+		clickElement(t1.contractList);
+	}
+
+	@When("user enter the {string} vendor column for new purchase search")
+	public void userEnterTheVendorColumnForNewPurchaseSearch(String refcustomer) {
+		sendKeys(t1.contractSearchField, refcustomer);
+		enterKey(t1.contractSearchField);
+	}
+
+	@Then("User gets the created new contract order sucessfully")
+	public void userGetsTheCreatedNewContractOrderSucessfully() {
+		String Actual = getText(t1.contractSearchVali);
+		String Expected = "Hema";
+		assertEquals(Expected, Actual);
+		System.out.println(Actual);
+
+	}
+
+	@When("user clicks the billing module presented in the dashboard")
+	public void userClicksTheBillingModulePresentedInTheDashboard() {
+		clickElement(t1.billingBtn);
+	}
+
+	@When("user clicks the new customer invoice option")
+	public void userClicksTheNewCustomerInvoiceOption() {
+		clickElement(t1.newCustomerInvoice);
+	}
+
+	@When("user enters the {string} name in the column of the invoice")
+	public void userEntersTheNameInTheColumnOfTheInvoice(String customer) {
+		clickElement(t1.thirdpartyBox);
+		sendKeys(t1.fields, customer);
+		enterKey(t1.fields);
+	}
+
+	@When("user select the down payment check box")
+	public void userSelectTheDownPaymentCheckBox() {
+		clickElement(t1.downPaymentcb);
+	}
+
+	@When("user enters the {string} bank account in the column")
+	public void userEntersTheBankAccountInTheColumn(String defaults) {
+		clickElement(t1.bankAccount);
+		sendKeys(t1.fields, defaults);
+		enterKey(t1.fields);
+	}
+
+	@When("user enters the {string} of the cash in the column")
+	public void userEntersTheOfTheCashInTheColumn(String source) {
+		clickElement(t1.source);
+		sendKeys(t1.fields, source);
+		enterKey(t1.fields);
+	}
+
+	@When("user enters the {string} of the customer invoice")
+	public void userEntersTheOfTheCustomerInvoice(String publicnote) {
+		sendKeys(t1.publicNotesField, publicnote);
+	}
+
+	@When("user enters the {string} of the customer invoice creation")
+	public void userEntersTheOfTheCustomerInvoiceCreation(String privateinvoice) {
+		sendKeys(t1.privateNotesField, privateinvoice);
+	}
+
+	@When("user clicks the create draft button to create invoice")
+	public void userClicksTheCreateDraftButtonToCreateInvoice() {
+		clickElement(t1.increateBtn);
+	}
+
+	@Then("user created the customer invoice sucessfully")
+	public void userCreatedTheCustomerInvoiceSucessfully() {
+		String Actual = getText(t1.cusInVali);
+		assertEquals(Actual, getText(t1.cusInVali));
+		System.out.println(Actual);
+	}
+
+	@When("user clicks the new customer invoice list button")
+	public void userClicksTheNewCustomerInvoiceListButton() {
+		clickElement(t1.billingBtn);
+		clickElement(t1.listCusIn);
+	}
+
+	@When("user sort by the {string} type")
+	public void userSortByTheType(String payment) {
+		clickElement(t1.listSearchBox);
+		sendKeys(t1.fields, payment);
+		enterKey(t1.fields);
+	}
+
+	@When("user click the link below")
+	public void userClickTheLinkBelow() {
+		moveToElement(t1.link);
+		clickElement(t1.link);
+	}
+
+	@Then("user gets the created customer invoice")
+	public void userGetsTheCreatedCustomerInvoice() {
+		String Actual = getText(t1.cusInSeVali);
+		String Expected = "(PROV27417)";
+		assertEquals(Expected, Actual);
+		System.out.println(Actual);
+	}
+
+	@When("user clicks the new vendor invoice option")
+	public void userClicksTheNewVendorInvoiceOption() {
+		clickElement(t1.billingBtn);
+		clickElement(t1.newVendor);
+	}
+
+	@When("user enters the {string} thirdparty name")
+	public void userEntersTheThirdpartyName(String vendor) {
+		clickElement(t1.thirdpartyBox);
+		sendKeys(t1.fields, vendor);
+		enterKey(t1.fields);
+	}
+
+	@When("user enters the {string} info reference")
+	public void userEntersTheInfoReference(String supplier) {
+		sendKeys(t1.supplierRef, supplier);
+	}
+
+	@When("user enters the {string} of the vendor")
+	public void userEntersTheOfTheVendor(String label) {
+		sendKeys(t1.labelFiled1, label);
+	}
+
+	@When("user enters the date of the {string}")
+	public void userEntersTheDateOfThe(String invoice) {
+		sendKeys(t1.invoiceDate, invoice);
+	}
+
+	@When("user enters the {string} date of the payment")
+	public void userEntersTheDateOfThePayment(String due) {
+		sendKeys(t1.duePayment, due);
+	}
+
+	@When("user enters the {string} account to the vendor")
+	public void userEntersTheAccountToTheVendor(String bank) {
+		clickElement(t1.bankAccount);
+		sendKeys(t1.fields, bank);
+		enterKey(t1.fields);
+	}
+
+	@When("user enters the {string} description")
+	public void userEntersTheDescription(String project) {
+		clickElement(t1.projectBox);
+		sendKeys(t1.fields, project);
+		enterKey(t1.fields);
+	}
+
+	@When("user enters the {string} to the vendor")
+	public void userEntersTheToTheVendor(String publicnote) {
+		sendKeys(t1.publicNotesField, publicnote);
+	}
+
+	@When("user enters the {string} for the vendor creation")
+	public void userEntersTheForTheVendorCreation(String privatenote) {
+		sendKeys(t1.privateNotesField, privatenote);
+	}
+
+	@When("user Clicks the create button to vendor invoice creation")
+	public void userClicksTheCreateButtonToVendorInvoiceCreation() {
+		clickElement(t1.increateBtn);
+	}
+
+	@Then("user creates the vendor invoice sucessfully")
+	public void userCreatesTheVendorInvoiceSucessfully() {
+
+	}
+	@When("user clicks the vendor list option")
+	public void userClicksTheVendorListOption() {
+	    
+	}
+	@When("user enters the {string} name in the search field")
+	public void userEntersTheNameInTheSearchField(String string) {
+	    
+	}
+	@Then("user gets the created new vendor")
+	public void userGetsTheCreatedNewVendor() {
+	    
 	}
 	
+	@When("user clicks the ticket module in the dashboard")
+	public void userClicksTheTicketModuleInTheDashboard() {
+	    clickElement(t1.ticketsBtn);
+	}
+	@When("user clicks the new article option")
+	public void userClicksTheNewArticleOption() {
+	   clickElement(t1.newArticle);
+	}
+	@When("user enters the {string} in the column of article")
+	public void userEntersTheInTheColumnOfArticle(String question) {
+	    sendKeys(t1.questionField, question);
+	}
+	@When("user enters the {string} of the article")
+	public void userEntersTheOfTheArticle(String language) {
+	    clickElement(t1.artLang);
+	    sendKeys(t1.fields, language);
+	    enterKey(t1.fields);
+	}
+	@When("user enters the {string} of ticket suggestion")
+	public void userEntersTheOfTicketSuggestion(String creation) {
+	   clickElement(t1.creationBox);
+	   sendKeys(t1.fields, creation);
+	   enterKey(t1.fields);
+	}
+	@When("user enters the {string} to article creation")
+	public void userEntersTheToArticleCreation(String solution) {
+	    switchToFrame(t1.solutionFiled);
+	    clickElement(t1.solution);
+	    sendKeys(t1.solution, solution);
+	    SwitchtoParentFrame();
+	}
+	@When("user click the article creation button")
+	public void userClickTheArticleCreationButton() {
+	    clickElement(t1.createBn);
+	}
+	@Then("user creates the article sucessfully")
+	public void userCreatesTheArticleSucessfully() {
+	    String Actual = getText(t1.artCreatVali);
+	    String Expected ="Who is our PM";
+	    assertEquals(Expected, Actual);
+	    System.out.println(Actual);
+	}
+	@When("user clicks the new ticket option")
+	public void userClicksTheNewTicketOption() {
+	    clickElement(t1.ticketsBtn);
+	    clickElement(t1.newTicket);
+	}
+	@When("user enters the {string} for the ticket creation")
+	public void userEntersTheForTheTicketCreation(String subject) {
+	    sendKeys(t1.subjectField, subject);
+	}
+	@When("user enters the {string} of ticket")
+	public void userEntersTheOfTicket(String message) {
+	   switchToFrame(t1.messageField);
+	   clickElement(t1.message);
+	   sendKeys(t1.message, message);
+	   SwitchtoParentFrame();
+	}
+	@When("user chooses the {string} of the ticket")
+	public void userChoosesTheOfTheTicket(String thirdparty) {
+	    clickElement(t1.thirdpartyBox);
+	    sendKeys(t1.fields, thirdparty);
+	    enterKey(t1.fields);
+	}
+	@When("user select the notify cb")
+	public void userSelectTheNotifyCb() {
+	    moveToElement(t1.creationcb);
+	    clickElement(t1.creationcb);
+	}
+	@When("user enters the {string} for ticket")
+	public void userEntersTheForTicket(String project) {
+	   clickElement(t1.projectBox);
+	   sendKeys(t1.fields, project);
+	}
+	@When("user clicks the create button for the ticket creation")
+	public void userClicksTheCreateButtonForTheTicketCreation() {
+	    clickElement(t1.createBtnTic);
+	}
+	@Then("user creates the ticket sucessfuly")
+	public void userCreatesTheTicketSucessfuly() {
+	    String Actual = getText(t1.ticketCreateVali);
+	    assertEquals(Actual, getText(t1.ticketCreateVali));
+	    System.out.println(Actual);
+	}
+	@When("user clicks the article list option")
+	public void userClicksTheArticleListOption() {
+	    clickElement(t1.ticketsBtn);
+	    clickElement(t1.listArt);
+	}
+	@When("user enters the {string} for sorting")
+	public void userEntersTheForSorting(String question) {
+	  sendKeys(t1.queSearch, question);
+	  enterKey(t1.queSearch);
+	}
+	@Then("user gets the created article")
+	public void userGetsTheCreatedArticle() {
+	    String Actual = getText(t1.queseachVali);
+	    String expected = "who is your pm";
+	    assertEquals(expected, Actual);
+	    System.out.println(Actual);
+	}
+	@When("user clicks the list of the tickets")
+	public void userClicksTheListOfTheTickets() {
+	    clickElement(t1.ticketsBtn);
+	    clickElement(t1.ticList);
+	}
+	@When("user enters the {string} in the sorting field")
+	public void userEntersTheInTheSortingField(String subject) {
+	  sendKeys(t1.ticSearch, subject);
+	  enterKey(t1.ticSearch);
+	}
+	@Then("user gets the created ticket sucessfully")
+	public void userGetsTheCreatedTicketSucessfully() {
+	    String Actual = getText(t1.ticSearchVali);
+	    String Expected = "computerScience";
+	    assertEquals(Expected, Actual);
+	    System.out.println(Actual);
+	}
+	@When("user clicks the agenda option in the dashboard")
+	public void userClicksTheAgendaOptionInTheDashboard() {
+	   clickElement(t1.agendaBtn);
+	}
+	@When("user clicks the new event option")
+	public void userClicksTheNewEventOption() {
+	    clickElement(t1.newEvent);
+	}
+	@When("user enters the {string} of the agenda")
+	public void userEntersTheOfTheAgenda(String Title) {
+	    sendKeys(t1.titleFiled, Title);
+	}
+	@When("user enters the {string} date of the event")
+	public void userEntersTheDateOfTheEvent(String start) {
+	    sendKeys(t1.startd, start);
+	}
+	@When("user enters the {string} date of the event agenda")
+	public void userEntersTheDateOfTheEventAgenda(String end) {
+	    sendKeys(t1.endd, end);
+	}
+	@When("user enters {string} in the event")
+	public void userEntersInTheEvent(String location) {
+	    sendKeys(t1.locationField, location);
+	}
+	@When("user enter {string} to of the agenda")
+	public void userEnterToOfTheAgenda(String assingned) {
+	    clickElement(t1.assignedBox);
+	    sendKeys(t1.fields, assingned);
+	    enterKey(t1.fields);
+	}
+	@When("user enters the {string} of agenda meeting")
+	public void userEntersTheOfAgendaMeeting(String resource) {
+	    clickElement(t1.resourceBox);
+	    sendKeys(t1.fields, resource);
+	    enterKey(t1.fields);
+	}
+	@When("user enters the {string} of the meeting")
+	public void userEntersTheOfTheMeeting(String status) {
+	    clickElement(t1.progressBox);
+	    sendKeys(t1.fields, status);
+	    enterKey(t1.fields);
+	}
+	@When("user enters the {string} company for the event")
+	public void userEntersTheCompanyForTheEvent(String related) {
+	    clickElement(t1.thirdpartyBox);
+	    sendKeys(t1.fields, related);
+	    enterKey(t1.fields);
+	}
+	@When("user enters the {string} for the event")
+	public void userEntersTheForTheEvent(String project) {
+	    clickElement(t1.projectBox);
+	    sendKeys(t1.fields, project);
+	    enterKey(t1.fields);
+	}
+	@When("user click the craete button for agenda creation")
+	public void userClickTheCraeteButtonForAgendaCreation() {
+	    clickElement(t1.createBtnEvent);
+	}
+	@Then("user creates the event sucessfully")
+	public void userCreatesTheEventSucessfully() {
+	    String Actual = getText(t1.eventCreateVali);
+	    String Expected = "Manufacturer";
+	    assertEquals(Expected, Actual);
+	    System.out.println(Actual);
+	}
+	@When("user clicks the new resources option")
+	public void userClicksTheNewResourcesOption() {
+	    clickElement(t1.agendaBtn);
+	    clickElement(t1.newResource);
+	}
+	@When("user enters the {string} name")
+	public void userEntersTheName(String resource) {
+	   sendKeys(t1.refName, resource);
+	}
+	@When("user enters the {string} of resource")
+	public void userEntersTheOfResource(String type) {
+	    clickElement(t1.resType);
+	    sendKeys(t1.fields, type);
+	    enterKey(t1.fields);
+	}
+	@When("user enter the {string} of resource craetion")
+	public void userEnterTheOfResourceCraetion(String desc) {
+	    switchToFrame(t1.resDes);
+	    clickElement(t1.message);
+	    sendKeys(t1.message, desc);
+	    SwitchtoParentFrame();
+	}
+	@When("user enters the {string} for the resource")
+	public void userEntersTheForTheResource(String address) {
+	    sendKeys(t1.addressRes, address);
+	}
+	@When("user enters the {string} code for address")
+	public void userEntersTheCodeForAddress(String zip) {
+	   sendKeys(t1.zipField, zip);
+	}
+	@When("user enters the {string} name for resiurce")
+	public void userEntersTheNameForResiurce(String city) {
+	    sendKeys(t1.cityField, city);
+	}
+	@When("user enters the {string} of the origin")
+	public void userEntersTheOfTheOrigin(String country) {
+	   clickElement(t1.countryRes);
+		sendKeys(t1.fields, country);
+		enterKey(t1.fields);
+	}
+	@When("user enters the {string} of the user")
+	public void userEntersTheOfTheUser(String phone) {
+	   sendKeys(t1.phoneRes, phone);
+	}
+	@When("user enters the {string} of the resource user")
+	public void userEntersTheOfTheResourceUser(String mail) {
+	  sendKeys(t1.mailRes, mail);
+	}
+	@When("user enters the {string} users of resource")
+	public void userEntersTheUsersOfResource(String maxi) {
+	    sendKeys(t1.maxRes, maxi);
+	}
+	@When("user clicks the craete button of the resource")
+	public void userClicksTheCraeteButtonOfTheResource() {
+	    clickElement(t1.createBtnEvent);
+	}
+	@Then("user created the resources sucessfully")
+	public void userCreatedTheResourcesSucessfully() {
+	    String Actual = getText(t1.resourceVali);
+	    String Expected = "Python";
+	    assertEquals(Expected, Actual);
+	    System.out.println(Actual);
+	}
+	
+	@When("user clicks the hrm option in the dashboard")
+	public void userClicksTheHrmOptionInTheDashboard() {
+	    clickElement(t1.hrmBtn);
+	    
+	}
+	@When("user clicks the new leave request option")
+	public void userClicksTheNewLeaveRequestOption() {
+		clickElement(t1.newLeave);
+	}
+	@When("user enters the {string} of the leave")
+	public void userEntersTheOfTheLeave(String type) {
+	    clickElement(t1.leaveType);
+	    sendKeys(t1.fields, type);
+	    enterKey(t1.fields);
+	}
+	@When("user enters the {string} date of the leave")
+	public void userEntersTheDateOfTheLeave(String start) {
+	    sendKeys(t1.leaveSd, start);
+	}
+	@When("user gives the {string} date of leave")
+	public void userGivesTheDateOfLeave(String end) {
+	    sendKeys(t1.leaveEd, end);
+	}
+	@When("user enters the {string} status")
+	public void userEntersTheStatus(String apporoval) {
+	    clickElement(t1.apporoval);
+	    sendKeys(t1.fields, apporoval);
+	    enterKey(t1.fields);
+	}
+	@When("user enters the {string} for leave request")
+	public void userEntersTheForLeaveRequest(String des) {
+	    switchToFrame(t1.resDes);
+	    clickElement(t1.message);
+	    sendKeys(t1.message, des);
+	    SwitchtoParentFrame();
+	}
+	@When("user clicks the create leave request")
+	public void userClicksTheCreateLeaveRequest() {
+	    clickElement(t1.leaveCreateBtn);
+	}
+	@Then("user applys leave sucessfully")
+	public void userApplysLeaveSucessfully() {
+	    
+	}
+	@When("user clicks the new expenses option")
+	public void userClicksTheNewExpensesOption() {
+	    clickElement(t1.hrmBtn);
+	    clickElement(t1.newExpenses);
+	}
+	@When("user enters the start date")
+	public void userEntersTheStartDate() {
+	    sendKeys(t1.sD, "08/14/2026");
+	}
+	@When("user enters the end date")
+	public void userEntersTheEndDate() {
+	    sendKeys(t1.eD, "08/16/2026");
+	}
+	@When("user enters the approved details")
+	public void userEntersTheApprovedDetails() {
+	    clickElement(t1.app);
+	    sendKeys(t1.fields, "Alice");
+	    enterKey(t1.fields);
+	}
+	@When("user enters the public note")
+	public void userEntersThePublicNote() {
+	   sendKeys(t1.publicNotesField, "nil");
+	}
+	@When("user enters the private note")
+	public void userEntersThePrivateNote() {
+	   sendKeys(t1.privateNotesField, "nil");
+	}
+	@When("user clicks the Create button")
+	public void userClicksTheCreateButton() {
+	    clickElement(t1.expSaveBtn);
+	}
+	@Then("user created the expenses sucesssfully")
+	public void userCreatedTheExpensesSucesssfully() {
+	    String Actual = getText(t1.expenseVali);
+	    assertEquals(Actual, getText(t1.expenseVali));
+	    System.out.println(Actual);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

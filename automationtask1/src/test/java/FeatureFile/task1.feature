@@ -226,7 +226,6 @@ Feature: To Verify the Functionality of the Dolibarr Demo Site
       | refcus | customer  | deliver    | delay     | shipping    | source | project    | inco | custom | publics      | privates      |
       | Gokul  | Naveenraj | 02/08/2025 | Immediate | Transporter | Fax    | Automation | CIF  | Nil    | Public notes | Private notes |
 
-  @test
   Scenario Outline: To validate the created sales orders in the list page
     When user clicks the commerce option for sale order validation
     And user clicks the list in sale order section
@@ -236,5 +235,245 @@ Feature: To Verify the Functionality of the Dolibarr Demo Site
     Examples:
       | thirdpart |
       | Naveenraj |
+
+  Scenario Outline: To create the new price request in the commerce module
+    When user clicks the new price request option
+    And user enters the "<vendor>" in the new price request list
+    And user enters the "<payment>" terms in the new price list
+    And user enters the "<delivery>" date in the new price list
+    And user enters the "<project>" details in the new price list
+    And user clicks the new price request create button
+    Then user creates the new price request sucessfully
+
+    Examples:
+      | vendor | payment  | delivery | project    |
+      | KVN    | Due Upon | 10/08/26 | Automation |
+
+  Scenario Outline: To validate the created new price in the list page
+    When user clicks the commerce option for new price  validation
+    And user clicks the list in new price request section
+    And user enter the "<vendor>" name in the vendor column for new price search
+    Then User gets the created new price sucessfully
+
+    Examples:
+      | vendor |
+      | kvn    |
+
+  Scenario Outline: To Create the new purchase order of the commerce module
+    When user clicks the commerce option for the create new purchase order
+    And user clicks the new purchase order option
+    And user enters the "<vendor>" in the new purchase order
+    And user enters the "<refvendor>" in the ref column
+    And user enters the "<palnned>" delivery date of the purchase order
+    And user enters the "<project>" for the new purchase order
+    And user enters the "<currency>" for the creation of new purchase
+    And user enters the "<publicnote>" for the purchase
+    And user Enters the "<privatenote>" for the new purchase
+    And user click the create button for new purchase
+    Then user creates the new purchase order sucessfully
+
+    Examples:
+      | vendor | refvendor | palnned    | project    | currency  | publicnote        | privatenote      |
+      | KVN    | Kathirvel | 11/08/2026 | Automation | US Dollar | Quickly delivered | Always available |
+
+  Scenario Outline: To validate the created new purchase  in the list page
+    When user clicks the commerce option for new purchase order  validation
+    And user clicks the list in new purchase order section
+    And user enter the "<refvendor>" name in the vendor column for new purchase search
+    Then User gets the created new purchase order sucessfully
+
+    Examples:
+      | refvendor |
+      | kathirvel |
+
+  Scenario Outline: To Create the new contract or subscription in the commerce
+    When user click the commerce option for creation of new contract
+    And user clicks the new contract and subscription
+    And user enters the "<refcustomer>" in the new contract
+    And user enters the "<refvendor>" in the creation of new contract
+    And user enters the "<thirdparty>" in the new contract creation
+    And user enters the "<project>" in create of new contract
+    And user enters the "<publicnotes>" for the new contract
+    And user enters the "<privatenotes>" for new subscription
+    And user clicks the create button for new contract
+    Then user creates a new contract or subscription sucessfully
+
+    Examples:
+      | refcustomer | refvendor | thirdparty | project    | publicnotes | privatenotes |
+      | Hema        | Kathirvel | KVN        | Automation | Nil         | Nil          |
+
+  Scenario Outline: To validate the created new contract list page
+    When user clicks the commerce option for new contract validation
+    And user clicks the list in new contract section
+    And user enter the "<refcustomer>" vendor column for new purchase search
+    Then User gets the created new contract order sucessfully
+
+    Examples:
+      | refcustomer |
+      | hema        |
+
+  Scenario Outline: To Create the new customer invoice in the billing module
+    When user clicks the billing module presented in the dashboard
+    And user clicks the new customer invoice option
+    And user enters the "<customer>" name in the column of the invoice
+    And user select the down payment check box
+    And user enters the "<defaults>" bank account in the column
+    And user enters the "<source>" of the cash in the column
+    And user enters the "<publicnote>" of the customer invoice
+    And user enters the "<privateinvoice>" of the customer invoice creation
+    And user clicks the create draft button to create invoice
+    Then user created the customer invoice sucessfully
+
+    Examples:
+      | customer     | defaults | source     | publicnote    | privateinvoice |
+      | Victor Felix | Account  | Commercial | Photo at best | 100% offer     |
+
+  Scenario Outline: To validate the creation of new customer invoice in the billing module
+    When user clicks the new customer invoice list button
+    And user sort by the "<payment>" type
+    And user click the link below
+    Then user gets the created customer invoice
+
+    Examples:
+      | payment |
+      | Down    |
+
+  Scenario Outline: To Create the new vendor invoice in the billing module
+    When user clicks the new vendor invoice option
+    And user enters the "<vendor>" thirdparty name
+    And user enters the "<supplier>" info reference
+    And user enters the "<label>" of the vendor
+    And user enters the date of the "<invoice>"
+    And user enters the "<due>" date of the payment
+    And user enters the "<bank>" account to the vendor
+    And user enters the "<project>" description
+    And user enters the "<publicnote>" to the vendor
+    And user enters the "<privatenote>" for the vendor creation
+    And user Clicks the create button to vendor invoice creation
+    Then user creates the vendor invoice sucessfully
+
+    Examples:
+      | vendor | supplier | label | invoice    | due        | bank    | project    | publicnote | privatenote |
+      | kvn    | Jeeva    | Photo | 22/09/2026 | 25/09/2026 | Account | Automation | nl         | nil         |
+
+  Scenario Outline: To Validate the creation of the new vendor in the list
+    When user clicks the vendor list option
+    And user enters the "<label>" name in the search field
+    Then user gets the created new vendor
+
+    Examples:
+      | label |
+      | Photo |
+
+  Scenario Outline: To Create a new Article in the Ticket module
+    When user clicks the ticket module in the dashboard
+    And user clicks the new article option
+    And user enters the "<question>" in the column of article
+    And user enters the "<language>" of the article
+    And user enters the "<creation>" of ticket suggestion
+    And user enters the "<solution>" to article creation
+    And user click the article creation button
+    Then user creates the article sucessfully
+
+    Examples:
+      | question      | language | creation | solution      |
+      | Who is our PM | English  | Other    | Narendra Modi |
+
+  Scenario Outline: To create the new ticket in the ticket module
+    When user clicks the new ticket option
+    And user enters the "<subject>" for the ticket creation
+    And user enters the "<message>" of ticket
+    And user chooses the "<thirdparty>" of the ticket
+    And user select the notify cb
+    And user enters the "<project>" for ticket
+    And user clicks the create button for the ticket creation
+    Then user creates the ticket sucessfuly
+
+    Examples:
+      | subject         | message       | thirdparty | project    |
+      | ComputerScience | Java Language | KVN        | Automation |
+
+  Scenario Outline: To validate the created article in list
+    When user clicks the article list option
+    And user enters the "<question>" for sorting
+    Then user gets the created article
+
+    Examples:
+      | question      |
+      | Who is our PM |
+
+  Scenario Outline: To Vlidate the created ticket in the list
+    When user clicks the list of the tickets
+    And user enters the "<subject>" in the sorting field
+    Then user gets the created ticket sucessfully
+
+    Examples:
+      | subject         |
+      | ComputerScience |
+
+  @test
+  Scenario Outline: To Create a new event in a Agenda module
+    When user clicks the agenda option in the dashboard
+    And user clicks the new event option
+    And user enters the "<Title>" of the agenda
+    And user enters the "<start>" date of the event
+    And user enters the "<end>" date of the event agenda
+    And user enters "<location>" in the event
+    And user enter "<assingned>" to of the agenda
+    And user enters the "<resource>" of agenda meeting
+    And user enters the "<status>" of the meeting
+    And user enters the "<related>" company for the event
+    And user enters the "<project>" for the event
+    And user click the craete button for agenda creation
+    Then user creates the event sucessfully
+
+    Examples:
+      | Title   | start      | end        | location | assingned | resource | status | related | project    |
+      | Meeting | 06/08/2026 | 07/08/2026 | Chennai  | Albert    | audi     | in     | kvn     | Automation |
+
+  
+  Scenario Outline: To create the new resources in the agenda module
+    When user clicks the new resources option
+    And user enters the "<resource>" name
+    And user enters the "<type>" of resource
+    And user enter the "<desc>" of resource craetion
+    And user enters the "<address>" for the resource
+    And user enters the "<zip>" code for address
+    And user enters the "<city>" name for resiurce
+    And user enters the "<country>" of the origin
+    And user enters the "<phone>" of the user
+    And user enters the "<mail>" of the resource user
+    And user enters the "<maxi>" users of resource
+    And user clicks the craete button of the resource
+    Then user created the resources sucessfully
+
+    Examples:
+      | resource | type | desc         | address | zip    | city    | country | phone      | mail           | maxi |
+      | Python   | car  | Four wheeler | Chennai | 600071 | Chennai | India   | 9876543210 | car2@gmail.com | 2    |
+
+  Scenario Outline: To Create the new Leave Request in the HRM module
+    When user clicks the hrm option in the dashboard
+    And user clicks the new leave request option
+    And user enters the "<type>" of the leave
+    And user enters the "<start>" date of the leave
+    And user gives the "<end>" date of leave
+    And user enters the "<apporoval>" status
+    And user enters the "<des>" for leave request
+    And user clicks the create leave request
+    Then user applys leave sucessfully
+
+    Examples:
+      | type | start      | end        | apporoval | des   |
+      | sick | 27/06/2026 | 28/06/2026 | apiuser   | Fever |
+      @test
+      Scenario: To Create the new Expenses in hrm module 
+      When user clicks the new expenses option 
+      And user enters the start date 
+      And user enters the end date 
+      And user enters the approved details 
+      And user enters the public note 
+      And user enters the private note 
+      And user clicks the Create button 
+      Then user created the expenses sucesssfully 
       
-      
+
