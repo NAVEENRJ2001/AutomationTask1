@@ -58,6 +58,13 @@ Feature: To Verify the Functionality of the Dolibarr Demo Site
     And User enters the third party name in the search field
     Then the created third party name will appear sucessfully
 
+  @test
+  Scenario: To Upload the File in the third party module
+    When user clicks the thirdparty option in the dashboard
+    And user clicks the list option in the module
+    And user enters the linked files option
+    And user Uploads the file
+
   Scenario: To Verify the Disable feature presented in the third party module
     When User clicks the third party profile
     And User clicks the Contact and address details
@@ -411,7 +418,6 @@ Feature: To Verify the Functionality of the Dolibarr Demo Site
       | subject         |
       | ComputerScience |
 
-  @test
   Scenario Outline: To Create a new event in a Agenda module
     When user clicks the agenda option in the dashboard
     And user clicks the new event option
@@ -431,7 +437,6 @@ Feature: To Verify the Functionality of the Dolibarr Demo Site
       | Title   | start      | end        | location | assingned | resource | status | related | project    |
       | Meeting | 06/08/2026 | 07/08/2026 | Chennai  | Albert    | audi     | in     | kvn     | Automation |
 
-  
   Scenario Outline: To create the new resources in the agenda module
     When user clicks the new resources option
     And user enters the "<resource>" name
@@ -465,15 +470,13 @@ Feature: To Verify the Functionality of the Dolibarr Demo Site
     Examples:
       | type | start      | end        | apporoval | des   |
       | sick | 27/06/2026 | 28/06/2026 | apiuser   | Fever |
-      @test
-      Scenario: To Create the new Expenses in hrm module 
-      When user clicks the new expenses option 
-      And user enters the start date 
-      And user enters the end date 
-      And user enters the approved details 
-      And user enters the public note 
-      And user enters the private note 
-      And user clicks the Create button 
-      Then user created the expenses sucesssfully 
-      
 
+  Scenario: To Create the new Expenses in hrm module
+    When user clicks the new expenses option
+    And user enters the start date
+    And user enters the end date
+    And user enters the approved details
+    And user enters the public note
+    And user enters the private note
+    And user clicks the Create button
+    Then user created the expenses sucesssfully

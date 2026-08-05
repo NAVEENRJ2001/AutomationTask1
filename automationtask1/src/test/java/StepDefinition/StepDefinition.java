@@ -238,6 +238,7 @@ public class StepDefinition extends BaseClass {
 		sendKeys(t1.birthDate, "27/06/2001");
 
 	}
+	
 
 	@When("User Clicks the Create third party button")
 	public void user_clicks_the_create_third_party_button() {
@@ -276,6 +277,28 @@ public class StepDefinition extends BaseClass {
 		assertEquals(Expected, Actual);
 		System.out.println(Actual);
 	}
+	@When("user clicks the thirdparty option in the dashboard")
+	public void userClicksTheThirdpartyOptionInTheDashboard() {
+	    clickElement(t1.thirdPartyBtn);
+	}
+	@When("user clicks the list option in the module")
+	public void userClicksTheListOptionInTheModule() {
+	    clickElement(t1.listOption);
+	    sendKeys(t1.listsearch, "naveenraj");
+		enterKey(t1.listsearch);
+		clickElement(t1.thirdpartyPro);
+	}
+	@When("user enters the linked files option")
+	public void userEntersTheLinkedFilesOption() {
+	    clickElement(t1.linkedFiles);
+	}
+	@When("user Uploads the file")
+	public void userUploadsTheFile() {
+	  clickElement(t1.addBtn);
+	  uploadFile(t1.picUpload, "Report naveen.docx");
+	  clickElement(t1.uploadBtn);
+	}
+
 
 	@When("User clicks the third party profile")
 	public void user_clicks_the_third_party_profile() {

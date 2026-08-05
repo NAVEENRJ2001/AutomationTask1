@@ -925,6 +925,17 @@ public class PomClass {
 	@FindBy(xpath = "(//a[text()='New'])[2]")
 	public WebElement newExpenses;
 	
+	@FindBy(xpath = "//input[@name='userfile[]']")
+	public WebElement picUpload;
+	
+	@FindBy(xpath = "(//a[@class='btnTitle btnTitlePlus'])[1]")
+	public WebElement addBtn;
+	
+	@FindBy(xpath = "//input[@name='sendit']")
+	public WebElement uploadBtn;
+	
+	@FindBy(id = "document")
+	public WebElement linkedFiles;
 	
 	
 	

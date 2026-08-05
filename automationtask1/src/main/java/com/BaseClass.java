@@ -167,4 +167,13 @@ public class BaseClass {
 
 	}
 
+	public static void uploadFile(WebElement element, String filename) {
+		String filepath = System.getProperty("user.dir") + File.separator + "uploads" + File.separator + filename;
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(element));
+		System.out.println(filepath);
+		element.sendKeys(filepath);
+
+	}
+
 }

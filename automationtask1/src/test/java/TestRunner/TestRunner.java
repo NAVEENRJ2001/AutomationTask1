@@ -11,11 +11,11 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @CucumberOptions(features = "src/test/java/FeatureFile",
-dryRun = true, 
+dryRun = false, 
 glue = {"StepDefinition","Hooks"}, 
 tags = "@test",
 plugin ={
-		"pretty", "html:target/html/report.html" },
+		"pretty", "html:target/html/report.html" , "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:,rerun:target/failed.txt","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm","html:target/cucumberReport.html"},
 monochrome=false,
 snippets = io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE
 )
